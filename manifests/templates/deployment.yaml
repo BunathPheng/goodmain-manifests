@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goodmain
+  labels:
+    app: goodmain
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goodmain
+  template:
+    metadata:
+      labels:
+        app: goodmain
+    spec:
+      containers:
+        - name: goodmain
+          image: docker.io/phengbunath/goodmain:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
